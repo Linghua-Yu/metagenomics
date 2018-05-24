@@ -32,7 +32,8 @@ summary(test)
 
 # k-folder crossvalidate
 library(caret)
-train_control <- trainControl(method="repeatedcv", number=7, repeats=3)
+#train_control <- trainControl(method="repeatedcv", number=7, repeats=3)
+train_control <- trainControl(method='LOOCV')
 model_nb <- train(train, train_labels, trControl=train_control, method='nb')
 print(model_nb)
 
